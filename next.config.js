@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/claudio_resume',
+  basePath: '/claudio-cv',
   trailingSlash: true,
 }
 
