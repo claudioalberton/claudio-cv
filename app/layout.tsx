@@ -28,8 +28,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          {/*
+            LanguageProvider here provides a default context for the fixed header (toggle).
+            Pages under /[locale]/ override this with their own nested LanguageProvider
+            that has the correct initialLocale from the URL.
+          */}
           <LanguageProvider>
-            <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
+            <div className="fixed top-4 right-4 z-50 flex items-center gap-2 no-print">
               <LanguageToggle />
               <ThemeToggle />
             </div>

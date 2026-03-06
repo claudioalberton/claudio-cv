@@ -1,36 +1,22 @@
 "use client"
 
-import { useRef } from "react"
-import { HeroSection } from "@/components/hero-section"
-import { Sidebar } from "@/components/sidebar"
-import { AchievementsSection } from "@/components/achievements-section"
-import { ExperienceSection } from "@/components/experience-section"
-import { EducationSection } from "@/components/education-section"
-import { SkillsSection } from "@/components/skills-section"
-import { PatentsSection } from "@/components/patents-section"
-import { PDFExportButton } from "@/components/pdf-export-button"
-import { Footer } from "@/components/footer"
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 
 export default function Home() {
-  const contentRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
-  return (
-    <main className="min-h-screen flex flex-col lg:flex-row print:flex-row">
-      <div ref={contentRef} className="flex flex-col lg:flex-row w-full">
-        <Sidebar />
-        <div className="flex-1">
-          <HeroSection />
-          <AchievementsSection />
-          <ExperienceSection />
-          <EducationSection />
-          <SkillsSection />
-          <PatentsSection />
+  useEffect(() => {
+    // Try to preserve previously chosen language from localStorage
+    let locale = "en"
+    try {
+      const stored = localStorage.getItem("resume-locale")
+      if (stored === "pt" || stored === "en") locale = stored
+    } catch {
+      // ignore
+    }
+    router.replace(`/${locale}`)
+  }, [router])
 
-          <Footer />
-        </div>
-      </div>
-
-      <PDFExportButton contentRef={contentRef} />
-    </main>
-  )
+  return null
 }
