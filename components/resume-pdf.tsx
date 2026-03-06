@@ -3,232 +3,358 @@ import type { ResumeData } from '@/data/resume-data';
 import { resumeData as defaultResumeData } from '@/data/resume-data';
 import { uiTranslations } from '@/data/ui-translations';
 
-// Create styles
+// ─── Color Palette ───────────────────────────────────────────────────────────
+const C = {
+  sidebarBg: '#0f172a',   // deep navy
+  accent: '#eab308',   // golden yellow
+  accentLight: '#fef9c3',   // pale yellow
+  white: '#ffffff',
+  offWhite: '#f8fafc',
+  bodyText: '#1e293b',
+  mutedText: '#64748b',
+  lightBorder: '#e2e8f0',
+  sidebarMuted: '#94a3b8',
+  sidebarText: '#e2e8f0',
+};
+
 const styles = StyleSheet.create({
+  // ─── Page ────────────────────────────────────────────────────────────────
   page: {
     flexDirection: 'row',
-    backgroundColor: '#ffffff',
+    backgroundColor: C.white,
     fontFamily: 'Helvetica',
   },
+
+  // ─── Sidebar ─────────────────────────────────────────────────────────────
   sidebar: {
-    width: '35%',
-    backgroundColor: '#1e293b',
-    color: '#ffffff',
-    padding: 20,
+    width: '33%',
+    backgroundColor: C.sidebarBg,
+    color: C.sidebarText,
+    paddingVertical: 0,
+    paddingHorizontal: 0,
+    flexDirection: 'column',
   },
-  content: {
-    width: '65%',
-    padding: 20,
-    paddingTop: 30,
+  sidebarAccentBar: {
+    height: 6,
+    backgroundColor: C.accent,
+    width: '100%',
   },
-  // Profile section
+  sidebarInner: {
+    padding: 18,
+    flexGrow: 1,
+  },
+
+  // Profile
   profileSection: {
-    marginBottom: 15,
+    alignItems: 'center',
+    marginBottom: 14,
+    paddingBottom: 14,
+    borderBottom: `1px solid #1e3a5f`,
   },
   profilePhoto: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    marginBottom: 10,
-    alignSelf: 'center',
+    width: 72,
+    height: 72,
+    borderRadius: 36,
+    marginBottom: 8,
     objectFit: 'cover',
+    border: `2px solid ${C.accent}`,
   },
   name: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 5,
-    textTransform: 'uppercase',
-  },
-  title: {
-    fontSize: 8,
-    textAlign: 'center',
-    marginBottom: 15,
-    color: '#e5e7eb',
-  },
-  // Section headers
-  sidebarSectionHeader: {
-    fontSize: 9,
-    fontWeight: 'bold',
-    marginTop: 15,
-    marginBottom: 8,
-    paddingBottom: 5,
-    borderBottom: '1px solid rgba(234, 179, 8, 0.5)',
-    textTransform: 'uppercase',
-  },
-  contentSectionHeader: {
     fontSize: 11,
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 8,
-    paddingBottom: 3,
-    borderBottom: '1px solid #cbd5e1',
-    textTransform: 'uppercase',
-    color: '#1e293b',
+    fontFamily: 'Helvetica-Bold',
+    textAlign: 'center',
+    color: C.white,
+    marginBottom: 3,
+    letterSpacing: 0.5,
   },
-  // Sidebar items
-  sidebarText: {
+  titleText: {
     fontSize: 7,
-    marginBottom: 5,
+    textAlign: 'center',
+    color: C.sidebarMuted,
     lineHeight: 1.4,
   },
-  sidebarListItem: {
+
+  // Sidebar sections
+  sidebarSection: {
+    marginBottom: 12,
+  },
+  sidebarSectionHeader: {
     fontSize: 7,
-    marginBottom: 4,
+    fontFamily: 'Helvetica-Bold',
+    color: C.accent,
+    marginBottom: 6,
+    letterSpacing: 1.2,
+    textTransform: 'uppercase',
+  },
+  sidebarDivider: {
+    height: 1,
+    backgroundColor: '#1e3a5f',
+    marginBottom: 10,
+  },
+
+  // Contact
+  contactRow: {
+    flexDirection: 'row',
+    marginBottom: 5,
+    alignItems: 'flex-start',
+  },
+  contactLabel: {
+    fontSize: 6,
+    color: C.accent,
+    fontFamily: 'Helvetica-Bold',
+    width: 14,
+    marginTop: 1,
+  },
+  contactValue: {
+    fontSize: 6.5,
+    color: C.sidebarText,
+    flex: 1,
+    lineHeight: 1.35,
+  },
+
+  // Skills / competencies list
+  sidebarListItem: {
+    fontSize: 6.5,
+    marginBottom: 3.5,
+    color: C.sidebarText,
     lineHeight: 1.3,
   },
+  tagRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 3,
+  },
+  tag: {
+    fontSize: 5.5,
+    color: C.accent,
+    borderWidth: 1,
+    borderColor: '#1e3a5f',
+    borderRadius: 2,
+    paddingHorizontal: 4,
+    paddingVertical: 2,
+    marginBottom: 2,
+    marginRight: 2,
+    backgroundColor: '#1e3a5f',
+  },
+
+  // Language bars
   languageItem: {
-    marginBottom: 8,
+    marginBottom: 7,
+  },
+  languageRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 3,
   },
   languageName: {
     fontSize: 7,
-    marginBottom: 3,
+    color: C.sidebarText,
+  },
+  languagePct: {
+    fontSize: 6,
+    color: C.sidebarMuted,
   },
   languageBar: {
     width: '100%',
-    height: 4,
-    backgroundColor: '#4b5563',
+    height: 3,
+    backgroundColor: '#1e3a5f',
     borderRadius: 2,
-    overflow: 'hidden',
   },
   languageBarFill: {
     height: '100%',
-    backgroundColor: '#eab308',
+    backgroundColor: C.accent,
+    borderRadius: 2,
   },
-  // Contact section
-  contactText: {
-    fontSize: 6.5,
-    marginBottom: 5,
-    lineHeight: 1.3,
-    wordWrap: 'break-word',
+
+  // Education (sidebar)
+  educationItem: {
+    marginBottom: 9,
   },
-  contactLink: {
-    fontSize: 5.5,
-    marginBottom: 5,
-    lineHeight: 1.3,
-    wordWrap: 'break-word',
-  },
-  // Content items
-  summaryText: {
-    fontSize: 9,
-    lineHeight: 1.5,
-    marginBottom: 10,
-    color: '#374151',
-  },
-  achievementItem: {
+  educationDegree: {
     fontSize: 7,
-    marginBottom: 5,
-    marginLeft: 10,
-    lineHeight: 1.4,
-    color: '#374151',
+    fontFamily: 'Helvetica-Bold',
+    color: C.sidebarText,
+    marginBottom: 1,
+    lineHeight: 1.3,
   },
+  educationInstitution: {
+    fontSize: 6.5,
+    color: C.sidebarMuted,
+    marginBottom: 1,
+  },
+  educationPeriod: {
+    fontSize: 6,
+    color: C.accent,
+  },
+
+  // ─── Main Content ─────────────────────────────────────────────────────────
+  content: {
+    width: '67%',
+    backgroundColor: C.white,
+    flexDirection: 'column',
+  },
+  contentAccentHeader: {
+    backgroundColor: C.sidebarBg,
+    height: 6,
+    width: '100%',
+  },
+  contentInner: {
+    padding: 22,
+    paddingTop: 18,
+    flexGrow: 1,
+  },
+
+  // Section headers
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 12,
+    marginBottom: 7,
+  },
+  sectionHeaderAccent: {
+    width: 3,
+    height: 12,
+    backgroundColor: C.accent,
+    marginRight: 7,
+    borderRadius: 1,
+  },
+  sectionHeaderText: {
+    fontSize: 9,
+    fontFamily: 'Helvetica-Bold',
+    color: C.bodyText,
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+  },
+  sectionDivider: {
+    height: 0.5,
+    backgroundColor: C.lightBorder,
+    marginBottom: 8,
+  },
+
+  // Summary
+  summaryText: {
+    fontSize: 8.5,
+    lineHeight: 1.55,
+    color: C.mutedText,
+    marginBottom: 4,
+  },
+
+  // Achievements
+  achievementItem: {
+    flexDirection: 'row',
+    marginBottom: 4,
+    paddingLeft: 2,
+  },
+  achievementBullet: {
+    fontSize: 7.5,
+    color: C.accent,
+    marginRight: 5,
+    marginTop: 0.5,
+  },
+  achievementText: {
+    fontSize: 7.5,
+    lineHeight: 1.4,
+    color: C.bodyText,
+    flex: 1,
+  },
+
   // Experience timeline
   experienceTimeline: {
-    borderLeft: '2px solid #cbd5e1',
-    marginLeft: 4,
+    borderLeft: `1.5px solid ${C.lightBorder}`,
+    marginLeft: 5,
     paddingLeft: 12,
   },
   experienceItem: {
-    marginBottom: 14,
-    marginTop: 4,
+    marginBottom: 12,
+    marginTop: 2,
   },
   experienceHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 3,
-    marginLeft: -18,
+    marginBottom: 2,
+    marginLeft: -17,
   },
   experienceDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: '#eab308',
+    width: 7,
+    height: 7,
+    borderRadius: 3.5,
+    backgroundColor: C.accent,
     marginRight: 6,
     flexShrink: 0,
   },
   experienceRole: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    marginBottom: 3,
-    color: '#111827',
+    fontSize: 9,
+    fontFamily: 'Helvetica-Bold',
+    color: C.bodyText,
+    flex: 1,
+  },
+  experienceCompanyRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 2,
   },
   experienceCompany: {
-    fontSize: 8,
-    fontWeight: 'bold',
-    marginBottom: 2,
-    color: '#4b5563',
+    fontSize: 7.5,
+    fontFamily: 'Helvetica-Bold',
+    color: C.accent,
   },
   experienceDetails: {
-    fontSize: 7,
+    fontSize: 6.5,
+    color: C.mutedText,
     marginBottom: 3,
-    color: '#6b7280',
   },
   experienceTechnologies: {
     fontSize: 6,
-    marginBottom: 5,
-    color: '#6b7280',
+    color: C.mutedText,
+    marginBottom: 4,
+    fontStyle: 'italic',
   },
   responsibilityItem: {
-    fontSize: 7,
-    marginBottom: 3,
-    marginLeft: 10,
+    flexDirection: 'row',
+    marginBottom: 2.5,
+    paddingLeft: 2,
+  },
+  responsibilityBullet: {
+    fontSize: 6.5,
+    color: C.mutedText,
+    marginRight: 4,
+  },
+  responsibilityText: {
+    fontSize: 6.5,
     lineHeight: 1.4,
-    color: '#374151',
+    color: C.bodyText,
+    flex: 1,
   },
-  // Education
-  educationItem: {
-    marginBottom: 10,
-  },
-  educationPeriod: {
-    fontSize: 7,
-    fontWeight: 'bold',
-    marginBottom: 2,
-  },
-  educationInstitution: {
-    fontSize: 6,
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
-    marginBottom: 2,
-  },
-  educationDegree: {
-    fontSize: 6,
-    marginLeft: 10,
-  },
+
   // Patents
   patentItem: {
     marginBottom: 8,
+    paddingLeft: 8,
+    borderLeft: `2px solid ${C.accentLight}`,
   },
   patentName: {
     fontSize: 8,
-    fontWeight: 'bold',
-    marginBottom: 3,
-    color: '#111827',
+    fontFamily: 'Helvetica-Bold',
+    marginBottom: 2,
+    color: C.bodyText,
   },
   patentDescription: {
     fontSize: 7,
     lineHeight: 1.4,
-    color: '#4b5563',
+    color: C.mutedText,
   },
 });
 
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 const getLanguagePercentage = (level: string): number => {
   const levelMap: Record<string, number> = {
-    // English
-    Native: 100,
-    'Full Professional': 90,
-    'Professional Working': 70,
-    Elementary: 50,
-    Basic: 15,
-    // Portuguese
-    Nativo: 100,
-    'Profissional Completo': 90,
-    Profissional: 70,
-    Elementar: 50,
-    Básico: 15,
+    Native: 100, 'Full Professional': 90, 'Professional Working': 70, Elementary: 50, Basic: 15,
+    Nativo: 100, 'Profissional Completo': 90, Profissional: 70, Elementar: 50, Básico: 15,
   };
   return levelMap[level] || 75;
 };
 
+// ─── Component ───────────────────────────────────────────────────────────────
 interface ResumePDFProps {
   profilePhotoUrl?: string;
   data?: ResumeData;
@@ -238,138 +364,190 @@ interface ResumePDFProps {
 export const ResumePDF = ({ profilePhotoUrl, data, locale = 'en' }: ResumePDFProps = {}) => {
   const resume = data ?? defaultResumeData;
   const t = uiTranslations[locale];
+
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        {/* Sidebar */}
+
+        {/* ── Sidebar ──────────────────────────────────────────────────── */}
         <View style={styles.sidebar}>
-          {/* Profile */}
-          <View style={styles.profileSection}>
-            {profilePhotoUrl && (
-              <Image
-                src={profilePhotoUrl}
-                style={styles.profilePhoto}
-              />
-            )}
-            <Text style={styles.name}>{resume.name}</Text>
-            <Text style={styles.title}>{resume.title}</Text>
-          </View>
+          <View style={styles.sidebarAccentBar} />
+          <View style={styles.sidebarInner}>
 
-          {/* Languages */}
-          <View>
-            <Text style={styles.sidebarSectionHeader}>{t.languages}</Text>
-            {resume.languages.map((lang, index) => {
-              const percentage = getLanguagePercentage(lang.level);
-              return (
-                <View key={index} style={styles.languageItem}>
-                  <Text style={styles.languageName}>{lang.name} - {percentage}%</Text>
-                  <View style={styles.languageBar}>
-                    <View style={[styles.languageBarFill, { width: `${percentage}%` }]} />
-                  </View>
-                </View>
-              );
-            })}
-          </View>
+            {/* Profile */}
+            <View style={styles.profileSection}>
+              {profilePhotoUrl && (
+                <Image src={profilePhotoUrl} style={styles.profilePhoto} />
+              )}
+              <Text style={styles.name}>{resume.name}</Text>
+              <Text style={styles.titleText}>{resume.title}</Text>
+            </View>
 
-          {/* Core Competencies */}
-          <View>
-            <Text style={styles.sidebarSectionHeader}>{t.coreCompetencies}</Text>
-            {resume.coreCompetencies.map((comp, index) => (
-              <Text key={index} style={styles.sidebarListItem}>• {comp}</Text>
-            ))}
-          </View>
-
-          {/* Technical Expertise */}
-          <View>
-            <Text style={styles.sidebarSectionHeader}>{t.technicalExpertise}</Text>
-            {resume.technicalExpertise.map((tech, index) => (
-              <Text key={index} style={styles.sidebarListItem}>• {tech}</Text>
-            ))}
-          </View>
-
-          {/* Education */}
-          <View>
-            <Text style={styles.sidebarSectionHeader}>{t.education}</Text>
-            {resume.education.map((edu, index) => (
-              <View key={index} style={styles.educationItem}>
-                <Text style={styles.educationPeriod}>{edu.period}</Text>
-                <Text style={styles.educationInstitution}>{edu.institution}</Text>
-                <Text style={styles.educationDegree}>• {edu.degree}</Text>
+            {/* Contact */}
+            <View style={styles.sidebarSection}>
+              <Text style={styles.sidebarSectionHeader}>{t.contact}</Text>
+              <View style={styles.contactRow}>
+                <Text style={styles.contactLabel}>@</Text>
+                <Text style={styles.contactValue}>{resume.email}</Text>
               </View>
-            ))}
-          </View>
+              <View style={styles.contactRow}>
+                <Text style={styles.contactLabel}>⌖</Text>
+                <Text style={styles.contactValue}>{resume.location}</Text>
+              </View>
+              <View style={styles.contactRow}>
+                <Text style={styles.contactLabel}>in</Text>
+                <Text style={styles.contactValue}>{resume.linkedin}</Text>
+              </View>
+            </View>
 
-          {/* Contact */}
-          <View>
-            <Text style={styles.sidebarSectionHeader}>{t.contact}</Text>
-            <Text style={styles.contactText}>{resume.location}</Text>
-            <Text style={styles.contactLink}>{resume.email}</Text>
-            <Text style={styles.contactLink}>{resume.linkedin}</Text>
-          </View>
-        </View>
+            <View style={styles.sidebarDivider} />
 
-        {/* Main Content */}
-        <View style={styles.content}>
-          {/* Summary */}
-          <View>
-            <Text style={styles.contentSectionHeader}>{t.professionalSummary}</Text>
-            <Text style={styles.summaryText}>{resume.summary}</Text>
-          </View>
-
-          {/* Key Achievements */}
-          <View>
-            <Text style={styles.contentSectionHeader}>{t.keyAchievements}</Text>
-            {resume.keyAchievements.map((achievement, index) => (
-              <Text key={index} style={styles.achievementItem}>• {achievement}</Text>
-            ))}
-          </View>
-
-          {/* Professional Experience */}
-          <View>
-            <Text style={styles.contentSectionHeader}>{t.professionalExperience}</Text>
-            <View style={styles.experienceTimeline}>
-              {resume.experience.map((exp, index) => (
-                <View key={index} style={styles.experienceItem} wrap={false}>
-                  <View style={styles.experienceHeader}>
-                    <View style={styles.experienceDot} />
-                    <Text style={styles.experienceRole}>{exp.role}</Text>
+            {/* Languages */}
+            <View style={styles.sidebarSection}>
+              <Text style={styles.sidebarSectionHeader}>{t.languages}</Text>
+              {resume.languages.map((lang, i) => {
+                const pct = getLanguagePercentage(lang.level);
+                return (
+                  <View key={i} style={styles.languageItem}>
+                    <View style={styles.languageRow}>
+                      <Text style={styles.languageName}>{lang.name}</Text>
+                      <Text style={styles.languagePct}>{pct}%</Text>
+                    </View>
+                    <View style={styles.languageBar}>
+                      <View style={[styles.languageBarFill, { width: `${pct}%` }]} />
+                    </View>
                   </View>
-                  <Text style={styles.experienceCompany}>{exp.company}</Text>
-                  <Text style={styles.experienceDetails}>
-                    {exp.period} {exp.duration && `(${exp.duration})`} • {exp.location}
-                  </Text>
-                  {exp.technologies && (
-                    <Text style={styles.experienceTechnologies}>
-                      {exp.technologies.join(', ')}
-                    </Text>
-                  )}
-                  {exp.responsibilities.map((resp, respIndex) => {
-                    const urlMatch = resp.match(/\(https?:\/\/[^)]+\)/);
-                    const text = urlMatch ? resp.replace(urlMatch[0], '').trim() : resp;
-                    return (
-                      <Text key={respIndex} style={styles.responsibilityItem}>
-                        • {text}
-                      </Text>
-                    );
-                  })}
+                );
+              })}
+            </View>
+
+            <View style={styles.sidebarDivider} />
+
+            {/* Core Competencies */}
+            <View style={styles.sidebarSection}>
+              <Text style={styles.sidebarSectionHeader}>{t.coreCompetencies}</Text>
+              {resume.coreCompetencies.map((comp, i) => (
+                <Text key={i} style={styles.sidebarListItem}>· {comp}</Text>
+              ))}
+            </View>
+
+            <View style={styles.sidebarDivider} />
+
+            {/* Technical Expertise */}
+            <View style={styles.sidebarSection}>
+              <Text style={styles.sidebarSectionHeader}>{t.technicalExpertise}</Text>
+              {resume.technicalExpertise.map((tech, i) => (
+                <Text key={i} style={styles.sidebarListItem}>· {tech}</Text>
+              ))}
+            </View>
+
+            <View style={styles.sidebarDivider} />
+
+            {/* Education */}
+            <View style={styles.sidebarSection}>
+              <Text style={styles.sidebarSectionHeader}>{t.education}</Text>
+              {resume.education.map((edu, i) => (
+                <View key={i} style={styles.educationItem}>
+                  <Text style={styles.educationDegree}>{edu.degree}</Text>
+                  <Text style={styles.educationInstitution}>{edu.institution}</Text>
+                  <Text style={styles.educationPeriod}>{edu.period}</Text>
                 </View>
               ))}
             </View>
-          </View>
 
-          {/* Patents & Innovations */}
-          <View>
-            <Text style={styles.contentSectionHeader}>{t.patentsAndInnovations}</Text>
-            {resume.patents.map((patent, index) => (
-              <View key={index} style={styles.patentItem} wrap={false}>
-                <Text style={styles.patentName}>{patent.name}</Text>
-                {patent.description && (
-                  <Text style={styles.patentDescription}>{patent.description}</Text>
-                )}
-              </View>
-            ))}
           </View>
         </View>
+
+        {/* ── Main Content ─────────────────────────────────────────────── */}
+        <View style={styles.content}>
+          <View style={styles.contentAccentHeader} />
+          <View style={styles.contentInner}>
+
+            {/* Summary */}
+            <View>
+              <View style={styles.sectionHeader}>
+                <View style={styles.sectionHeaderAccent} />
+                <Text style={styles.sectionHeaderText}>{t.professionalSummary}</Text>
+              </View>
+              <View style={styles.sectionDivider} />
+              <Text style={styles.summaryText}>{resume.summary}</Text>
+            </View>
+
+            {/* Key Achievements */}
+            <View>
+              <View style={styles.sectionHeader}>
+                <View style={styles.sectionHeaderAccent} />
+                <Text style={styles.sectionHeaderText}>{t.keyAchievements}</Text>
+              </View>
+              <View style={styles.sectionDivider} />
+              {resume.keyAchievements.map((a, i) => (
+                <View key={i} style={styles.achievementItem}>
+                  <Text style={styles.achievementBullet}>▸</Text>
+                  <Text style={styles.achievementText}>{a}</Text>
+                </View>
+              ))}
+            </View>
+
+            {/* Professional Experience */}
+            <View>
+              <View style={styles.sectionHeader}>
+                <View style={styles.sectionHeaderAccent} />
+                <Text style={styles.sectionHeaderText}>{t.professionalExperience}</Text>
+              </View>
+              <View style={styles.sectionDivider} />
+              <View style={styles.experienceTimeline}>
+                {resume.experience.map((exp, i) => (
+                  <View key={i} style={styles.experienceItem} wrap={false}>
+                    <View style={styles.experienceHeader}>
+                      <View style={styles.experienceDot} />
+                      <Text style={styles.experienceRole}>{exp.role}</Text>
+                    </View>
+                    <View style={styles.experienceCompanyRow}>
+                      <Text style={styles.experienceCompany}>{exp.company}</Text>
+                    </View>
+                    <Text style={styles.experienceDetails}>
+                      {exp.period}{exp.duration ? ` (${exp.duration})` : ''} · {exp.location}
+                    </Text>
+                    {exp.technologies && (
+                      <Text style={styles.experienceTechnologies}>
+                        {exp.technologies.join(' · ')}
+                      </Text>
+                    )}
+                    {exp.responsibilities.map((resp, ri) => {
+                      const urlMatch = resp.match(/\(https?:\/\/[^)]+\)/);
+                      const text = urlMatch ? resp.replace(urlMatch[0], '').trim() : resp;
+                      return (
+                        <View key={ri} style={styles.responsibilityItem}>
+                          <Text style={styles.responsibilityBullet}>–</Text>
+                          <Text style={styles.responsibilityText}>{text}</Text>
+                        </View>
+                      );
+                    })}
+                  </View>
+                ))}
+              </View>
+            </View>
+
+            {/* Patents & Innovations */}
+            <View>
+              <View style={styles.sectionHeader}>
+                <View style={styles.sectionHeaderAccent} />
+                <Text style={styles.sectionHeaderText}>{t.patentsAndInnovations}</Text>
+              </View>
+              <View style={styles.sectionDivider} />
+              {resume.patents.map((patent, i) => (
+                <View key={i} style={styles.patentItem} wrap={false}>
+                  <Text style={styles.patentName}>{patent.name}</Text>
+                  {patent.description && (
+                    <Text style={styles.patentDescription}>{patent.description}</Text>
+                  )}
+                </View>
+              ))}
+            </View>
+
+          </View>
+        </View>
+
       </Page>
     </Document>
   );
