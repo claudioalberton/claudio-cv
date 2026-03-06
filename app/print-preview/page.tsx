@@ -22,7 +22,7 @@ function PrintPreviewContent() {
       const { pdf } = await import('@react-pdf/renderer')
       const { ResumePDF } = await import('@/components/resume-pdf')
 
-      const photoUrl = `${window.location.origin}/claudio_resume/images/profile-photo.jpg`
+      const photoUrl = `${window.location.origin}/claudio-cv/images/profile-photo.jpg`
       const blob = await pdf(<ResumePDF profilePhotoUrl={photoUrl} data={resumeData} />).toBlob()
       const url = URL.createObjectURL(blob)
 
@@ -50,7 +50,7 @@ function PrintPreviewContent() {
       const { pdf } = await import('@react-pdf/renderer')
       const { ResumePDF } = await import('@/components/resume-pdf')
 
-      const photoUrl = `${window.location.origin}/claudio_resume/images/profile-photo.jpg`
+      const photoUrl = `${window.location.origin}/claudio-cv/images/profile-photo.jpg`
       const blob = await pdf(<ResumePDF profilePhotoUrl={photoUrl} data={resumeData} />).toBlob()
       const url = URL.createObjectURL(blob)
       setPdfBlob(url)
