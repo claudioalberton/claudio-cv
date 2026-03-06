@@ -122,23 +122,29 @@ const styles = StyleSheet.create({
     lineHeight: 1.4,
     color: '#374151',
   },
-  // Experience items
-  experienceItem: {
-    marginBottom: 12,
-    marginTop: 8,
-    paddingLeft: 15,
+  // Experience timeline
+  experienceTimeline: {
     borderLeft: '2px solid #cbd5e1',
-    position: 'relative',
+    marginLeft: 4,
+    paddingLeft: 12,
+  },
+  experienceItem: {
+    marginBottom: 14,
+    marginTop: 4,
+  },
+  experienceHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 3,
+    marginLeft: -18,
   },
   experienceDot: {
-    position: 'absolute',
-    left: -6,
-    top: 8,
-    width: 10,
-    height: 10,
-    borderRadius: 5,
+    width: 8,
+    height: 8,
+    borderRadius: 4,
     backgroundColor: '#eab308',
-    border: '2px solid #ffffff',
+    marginRight: 6,
+    flexShrink: 0,
   },
   experienceRole: {
     fontSize: 10,
@@ -321,30 +327,34 @@ export const ResumePDF = ({ profilePhotoUrl, data, locale = 'en' }: ResumePDFPro
           {/* Professional Experience */}
           <View>
             <Text style={styles.contentSectionHeader}>{t.professionalExperience}</Text>
-            {resume.experience.map((exp, index) => (
-              <View key={index} style={styles.experienceItem} wrap={false}>
-                <View style={styles.experienceDot} />
-                <Text style={styles.experienceRole}>{exp.role}</Text>
-                <Text style={styles.experienceCompany}>{exp.company}</Text>
-                <Text style={styles.experienceDetails}>
-                  {exp.period} {exp.duration && `(${exp.duration})`} • {exp.location}
-                </Text>
-                {exp.technologies && (
-                  <Text style={styles.experienceTechnologies}>
-                    {exp.technologies.join(', ')}
+            <View style={styles.experienceTimeline}>
+              {resume.experience.map((exp, index) => (
+                <View key={index} style={styles.experienceItem} wrap={false}>
+                  <View style={styles.experienceHeader}>
+                    <View style={styles.experienceDot} />
+                    <Text style={styles.experienceRole}>{exp.role}</Text>
+                  </View>
+                  <Text style={styles.experienceCompany}>{exp.company}</Text>
+                  <Text style={styles.experienceDetails}>
+                    {exp.period} {exp.duration && `(${exp.duration})`} • {exp.location}
                   </Text>
-                )}
-                {exp.responsibilities.map((resp, respIndex) => {
-                  const urlMatch = resp.match(/\(https?:\/\/[^)]+\)/);
-                  const text = urlMatch ? resp.replace(urlMatch[0], '').trim() : resp;
-                  return (
-                    <Text key={respIndex} style={styles.responsibilityItem}>
-                      • {text}
+                  {exp.technologies && (
+                    <Text style={styles.experienceTechnologies}>
+                      {exp.technologies.join(', ')}
                     </Text>
-                  );
-                })}
-              </View>
-            ))}
+                  )}
+                  {exp.responsibilities.map((resp, respIndex) => {
+                    const urlMatch = resp.match(/\(https?:\/\/[^)]+\)/);
+                    const text = urlMatch ? resp.replace(urlMatch[0], '').trim() : resp;
+                    return (
+                      <Text key={respIndex} style={styles.responsibilityItem}>
+                        • {text}
+                      </Text>
+                    );
+                  })}
+                </View>
+              ))}
+            </View>
           </View>
 
           {/* Patents & Innovations */}
