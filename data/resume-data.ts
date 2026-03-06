@@ -63,6 +63,7 @@ export const resumeData: ResumeData = {
       location: "Toronto, Canada",
       period: "April 2025 - Present",
       responsibilities: [
+        "Meetings Hub: Created a centralized hub with automation of all demos and updates of the entire company in one place with one source of truth",
         "Device Lifecycle & Asset Management: Implemented scalable logistics and resale strategy for device distribution",
         "Cost & Subscription Optimization: Conducted software audits and refined licensing strategy",
         "IT Support & Employee Experience: Built Jira-based support model and standardized onboarding/offboarding",

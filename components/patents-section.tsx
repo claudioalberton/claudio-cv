@@ -3,9 +3,10 @@
 import { motion } from "framer-motion"
 import { Award } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { resumeData } from "@/data/resume-data"
+import { useLanguage } from "@/context/language-context"
 
 export function PatentsSection() {
+  const { resumeData, t } = useLanguage()
   return (
     <section id="patents" className="py-16 bg-secondary/20 print:bg-none print:py-8 print-break-avoid">
       <div className="container mx-auto px-4">
@@ -17,7 +18,7 @@ export function PatentsSection() {
         >
           <div className="flex items-center gap-3 mb-8">
             <Award className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold">Patents & Innovations</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t.patentsAndInnovations}</h2>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

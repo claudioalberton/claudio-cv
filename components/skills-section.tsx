@@ -2,10 +2,10 @@
 
 import { motion } from "framer-motion"
 import { Code2, Target } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import { resumeData } from "@/data/resume-data"
+import { useLanguage } from "@/context/language-context"
 
 export function SkillsSection() {
+  const { resumeData, t } = useLanguage()
   return (
     <section id="technologies" className="py-16 bg-secondary/20 print:bg-none print:py-8 print-break-avoid">
       <div className="container mx-auto px-4">
@@ -19,7 +19,7 @@ export function SkillsSection() {
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-6">
               <Target className="h-8 w-8 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold">Core Competencies</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">{t.coreCompetencies}</h2>
             </div>
             <div className="space-y-3">
               {resumeData.coreCompetencies.map((competency, index) => (
@@ -43,7 +43,7 @@ export function SkillsSection() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Code2 className="h-8 w-8 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-bold">Technical Expertise</h2>
+              <h2 className="text-3xl md:text-4xl font-bold">{t.technicalExpertise}</h2>
             </div>
             <div className="space-y-3">
               {resumeData.technicalExpertise.map((expertise, index) => (

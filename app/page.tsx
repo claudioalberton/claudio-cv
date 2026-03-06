@@ -9,6 +9,7 @@ import { EducationSection } from "@/components/education-section"
 import { SkillsSection } from "@/components/skills-section"
 import { PatentsSection } from "@/components/patents-section"
 import { PDFExportButton } from "@/components/pdf-export-button"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   const contentRef = useRef<HTMLDivElement>(null)
@@ -25,12 +26,7 @@ export default function Home() {
           <SkillsSection />
           <PatentsSection />
 
-          <footer className="py-8 text-center text-sm text-muted-foreground border-t no-print">
-            <div className="container mx-auto px-4">
-              <p>Built with Next.js, TypeScript, and Tailwind CSS</p>
-              <p className="mt-2">Claudio Alberton Batista - 2025</p>
-            </div>
-          </footer>
+          <Footer />
         </div>
       </div>
 

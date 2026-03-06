@@ -4,10 +4,12 @@ import { Suspense, useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Download, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import { useLanguage } from "@/context/language-context"
 
 function PrintPreviewContent() {
   const [isClient, setIsClient] = useState(false)
   const [pdfBlob, setPdfBlob] = useState<string | null>(null)
+  const { resumeData, t } = useLanguage()
 
   useEffect(() => {
     setIsClient(true)
@@ -17,12 +19,11 @@ function PrintPreviewContent() {
     if (typeof window === 'undefined') return
 
     try {
-      // Dynamically import on client side
       const { pdf } = await import('@react-pdf/renderer')
       const { ResumePDF } = await import('@/components/resume-pdf')
 
       const photoUrl = `${window.location.origin}/claudio_resume/images/profile-photo.jpg`
-      const blob = await pdf(<ResumePDF profilePhotoUrl={photoUrl} />).toBlob()
+      const blob = await pdf(<ResumePDF profilePhotoUrl={photoUrl} data={resumeData} />).toBlob()
       const url = URL.createObjectURL(blob)
 
       // Create temporary link and trigger download
@@ -50,7 +51,7 @@ function PrintPreviewContent() {
       const { ResumePDF } = await import('@/components/resume-pdf')
 
       const photoUrl = `${window.location.origin}/claudio_resume/images/profile-photo.jpg`
-      const blob = await pdf(<ResumePDF profilePhotoUrl={photoUrl} />).toBlob()
+      const blob = await pdf(<ResumePDF profilePhotoUrl={photoUrl} data={resumeData} />).toBlob()
       const url = URL.createObjectURL(blob)
       setPdfBlob(url)
     } catch (error) {
@@ -72,14 +73,14 @@ function PrintPreviewContent() {
         <Link href="/">
           <Button variant="outline">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Website
+            {t.backToWebsite}
           </Button>
         </Link>
 
         {isClient && (
           <Button size="lg" onClick={handleDownload}>
             <Download className="mr-2 h-5 w-5" />
-            Download PDF
+            {t.downloadPdf}
           </Button>
         )}
       </div>
@@ -96,7 +97,7 @@ function PrintPreviewContent() {
           />
         ) : (
           <div className="flex items-center justify-center p-8" style={{ minHeight: '29.7cm' }}>
-            <p className="text-gray-600">Generating PDF preview...</p>
+            <p className="text-gray-600">{t.generatingPdf}</p>
           </div>
         )}
       </div>

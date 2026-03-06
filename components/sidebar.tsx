@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { MapPin, Mail, Linkedin, Check } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
-import { resumeData } from "@/data/resume-data"
+import { useLanguage } from "@/context/language-context"
 
 interface LanguageProgressProps {
   label: string
@@ -66,11 +66,18 @@ function getLanguagePercentage(level: string): number {
     "Professional Working": 70,
     "Elementary": 50,
     "Basic": 15,
+    // Portuguese
+    Nativo: 100,
+    "Profissional Completo": 90,
+    Profissional: 70,
+    Elementar: 50,
+    Básico: 15,
   }
   return levelMap[level] || 75
 }
 
 export function Sidebar() {
+  const { resumeData, t } = useLanguage()
   const languages = resumeData.languages
   const [imageError, setImageError] = useState(false)
 
@@ -99,7 +106,7 @@ export function Sidebar() {
                 <div className="absolute inset-0 flex items-center justify-center text-primary/60">
                   <div className="text-center">
                     <div className="text-5xl mb-2">👤</div>
-                    <div className="text-xs font-medium">Add your photo</div>
+                    <div className="text-xs font-medium">{t.addYourPhoto}</div>
                     <div className="text-xs text-muted-foreground mt-1">public/images/profile-photo.jpg</div>
                   </div>
                 </div>
@@ -119,7 +126,7 @@ export function Sidebar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">CONTACT</h3>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">{t.contact}</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-sm print:flex-col print:items-start print:gap-1">
                 <MapPin className="h-4 w-4 text-primary flex-shrink-0 print:hidden" />
@@ -155,7 +162,7 @@ export function Sidebar() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="hidden print:block"
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">EDUCATION</h3>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">{t.education.toUpperCase()}</h3>
             <div className="space-y-4">
               {resumeData.education.map((edu, index) => {
                 const periods = edu.period.split(' - ');
@@ -178,7 +185,7 @@ export function Sidebar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">LANGUAGES</h3>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">{t.languages}</h3>
             <div className="grid grid-cols-2 gap-4 print:hidden">
               {languages.map((language, index) => (
                 <LanguageProgress
@@ -204,7 +211,7 @@ export function Sidebar() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">CORE COMPETENCIES</h3>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">{t.coreCompetencies.toUpperCase()}</h3>
             <ul className="hidden print:block space-y-1">
               {resumeData.coreCompetencies.map((competency, index) => (
                 <li key={index} className="text-sm">
@@ -229,7 +236,7 @@ export function Sidebar() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="print:hidden"
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">TECHNICAL EXPERTISE</h3>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">{t.technicalExpertise.toUpperCase()}</h3>
             <div className="space-y-2">
               {resumeData.technicalExpertise.map((expertise, index) => (
                 <div key={index} className="flex items-start gap-2 text-sm">
@@ -247,7 +254,7 @@ export function Sidebar() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="hidden print:block"
           >
-            <h3 className="text-lg font-semibold mb-4 text-foreground">TECHNICAL EXPERTISE</h3>
+            <h3 className="text-lg font-semibold mb-4 text-foreground">{t.technicalExpertise.toUpperCase()}</h3>
             <ul className="space-y-1">
               {resumeData.technicalExpertise.map((expertise, index) => (
                 <li key={index} className="text-sm">

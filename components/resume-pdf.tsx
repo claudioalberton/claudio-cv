@@ -1,5 +1,6 @@
 import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
-import { resumeData } from '@/data/resume-data';
+import type { ResumeData } from '@/data/resume-data';
+import { resumeData as defaultResumeData } from '@/data/resume-data';
 
 // Create styles
 const styles = StyleSheet.create({
@@ -216,9 +217,11 @@ const getLanguagePercentage = (level: string): number => {
 
 interface ResumePDFProps {
   profilePhotoUrl?: string;
+  data?: ResumeData;
 }
 
-export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
+export const ResumePDF = ({ profilePhotoUrl, data }: ResumePDFProps = {}) => {
+  const resume = data ?? defaultResumeData;
   return (
     <Document>
       <Page size="A4" style={styles.page}>
@@ -232,14 +235,14 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
                 style={styles.profilePhoto}
               />
             )}
-            <Text style={styles.name}>{resumeData.name}</Text>
-            <Text style={styles.title}>{resumeData.title}</Text>
+            <Text style={styles.name}>{resume.name}</Text>
+            <Text style={styles.title}>{resume.title}</Text>
           </View>
 
           {/* Languages */}
           <View>
             <Text style={styles.sidebarSectionHeader}>Languages</Text>
-            {resumeData.languages.map((lang, index) => {
+            {resume.languages.map((lang, index) => {
               const percentage = getLanguagePercentage(lang.level);
               return (
                 <View key={index} style={styles.languageItem}>
@@ -255,7 +258,7 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
           {/* Core Competencies */}
           <View>
             <Text style={styles.sidebarSectionHeader}>Core Competencies</Text>
-            {resumeData.coreCompetencies.map((comp, index) => (
+            {resume.coreCompetencies.map((comp, index) => (
               <Text key={index} style={styles.sidebarListItem}>• {comp}</Text>
             ))}
           </View>
@@ -263,7 +266,7 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
           {/* Technical Expertise */}
           <View>
             <Text style={styles.sidebarSectionHeader}>Technical Expertise</Text>
-            {resumeData.technicalExpertise.map((tech, index) => (
+            {resume.technicalExpertise.map((tech, index) => (
               <Text key={index} style={styles.sidebarListItem}>• {tech}</Text>
             ))}
           </View>
@@ -271,7 +274,7 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
           {/* Education */}
           <View>
             <Text style={styles.sidebarSectionHeader}>Education</Text>
-            {resumeData.education.map((edu, index) => (
+            {resume.education.map((edu, index) => (
               <View key={index} style={styles.educationItem}>
                 <Text style={styles.educationPeriod}>{edu.period}</Text>
                 <Text style={styles.educationInstitution}>{edu.institution}</Text>
@@ -283,9 +286,9 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
           {/* Contact */}
           <View>
             <Text style={styles.sidebarSectionHeader}>Contact</Text>
-            <Text style={styles.contactText}>{resumeData.location}</Text>
-            <Text style={styles.contactLink}>{resumeData.email}</Text>
-            <Text style={styles.contactLink}>{resumeData.linkedin}</Text>
+            <Text style={styles.contactText}>{resume.location}</Text>
+            <Text style={styles.contactLink}>{resume.email}</Text>
+            <Text style={styles.contactLink}>{resume.linkedin}</Text>
           </View>
         </View>
 
@@ -294,13 +297,13 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
           {/* Summary */}
           <View>
             <Text style={styles.contentSectionHeader}>Summary</Text>
-            <Text style={styles.summaryText}>{resumeData.summary}</Text>
+            <Text style={styles.summaryText}>{resume.summary}</Text>
           </View>
 
           {/* Key Achievements */}
           <View>
             <Text style={styles.contentSectionHeader}>Key Achievements</Text>
-            {resumeData.keyAchievements.map((achievement, index) => (
+            {resume.keyAchievements.map((achievement, index) => (
               <Text key={index} style={styles.achievementItem}>• {achievement}</Text>
             ))}
           </View>
@@ -308,7 +311,7 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
           {/* Professional Experience */}
           <View>
             <Text style={styles.contentSectionHeader}>Professional Experience</Text>
-            {resumeData.experience.map((exp, index) => (
+            {resume.experience.map((exp, index) => (
               <View key={index} style={styles.experienceItem} wrap={false}>
                 <View style={styles.experienceDot} />
                 <Text style={styles.experienceRole}>{exp.role}</Text>
@@ -337,7 +340,7 @@ export const ResumePDF = ({ profilePhotoUrl }: ResumePDFProps = {}) => {
           {/* Patents & Innovations */}
           <View>
             <Text style={styles.contentSectionHeader}>Patents & Innovations</Text>
-            {resumeData.patents.map((patent, index) => (
+            {resume.patents.map((patent, index) => (
               <View key={index} style={styles.patentItem} wrap={false}>
                 <Text style={styles.patentName}>{patent.name}</Text>
                 {patent.description && (

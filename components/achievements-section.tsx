@@ -3,9 +3,10 @@
 import { motion } from "framer-motion"
 import { Trophy } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-import { resumeData } from "@/data/resume-data"
+import { useLanguage } from "@/context/language-context"
 
 export function AchievementsSection() {
+  const { resumeData, t } = useLanguage()
   return (
     <section className="py-16 print:py-8 print-break-avoid">
       <div className="container mx-auto px-4">
@@ -17,7 +18,7 @@ export function AchievementsSection() {
         >
           <div className="flex items-center gap-3 mb-8">
             <Trophy className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold">Key Achievements</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t.keyAchievements}</h2>
           </div>
 
           <div className="grid gap-4">
