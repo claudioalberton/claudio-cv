@@ -4,9 +4,10 @@ import { motion } from "framer-motion"
 import { Briefcase, Calendar, MapPin } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { resumeData } from "@/data/resume-data"
+import { useLanguage } from "@/context/language-context"
 
 export function ExperienceSection() {
+  const { resumeData, t } = useLanguage()
   return (
     <section className="py-16 bg-secondary/20 print:bg-none print:py-8">
       <div className="container mx-auto px-4">
@@ -18,7 +19,7 @@ export function ExperienceSection() {
         >
           <div className="flex items-center gap-3 mb-12">
             <Briefcase className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl md:text-4xl font-bold">Professional Experience</h2>
+            <h2 className="text-3xl md:text-4xl font-bold">{t.professionalExperience}</h2>
           </div>
 
           <div className="relative">
