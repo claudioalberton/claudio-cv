@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/context/language-context"
@@ -11,10 +11,13 @@ interface PDFExportButtonProps {
 
 export function PDFExportButton({ contentRef }: PDFExportButtonProps) {
   const router = useRouter()
+  const pathname = usePathname()
   const { t } = useLanguage()
 
+  const locale = pathname.startsWith("/pt") ? "pt" : "en"
+
   const handleClick = () => {
-    router.push("/print-preview?autoExport=true")
+    router.push(`/print-preview?autoExport=true&locale=${locale}`)
   }
 
   return (
