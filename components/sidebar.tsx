@@ -62,13 +62,13 @@ function LanguageProgress({ label, percentage, index }: LanguageProgressProps) {
 function getLanguagePercentage(level: string): number {
   const levelMap: Record<string, number> = {
     Native: 100,
-    "Full Professional": 90,
+    "Full Professional": 95,
     "Professional Working": 70,
     "Elementary": 50,
     "Basic": 15,
     // Portuguese
     Nativo: 100,
-    "Profissional Completo": 90,
+    "Profissional Completo": 95,
     Profissional: 70,
     Elementar: 50,
     Básico: 15,
