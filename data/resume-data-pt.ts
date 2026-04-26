@@ -23,33 +23,34 @@ export const resumeDataPt: ResumeData = {
       location: "Toronto, Canadá",
       period: "Abril 2025 - Presente",
       responsibilities: [
-        "Meetings Hub: Criação de um hub centralizado com automação de todas as demos e atualizações da empresa em um só lugar com uma única fonte da verdade",
-        "Ciclo de Vida de Dispositivos e Gestão de Ativos: Implementação de estratégia escalável de logística e revenda para distribuição de dispositivos",
-        "Otimização de Custos e Assinaturas: Auditorias de software e refinamento da estratégia de licenciamento",
-        "Suporte de TI e Experiência do Colaborador: Modelo de suporte baseado em Jira e padronização de onboarding/offboarding",
-        "Sistema Interno de Gestão de TI: Plataforma centralizada para dispositivos, assinaturas e gestão do ciclo de vida",
-        "Automação e Governança: Fluxos Slack-to-Jira e alertas automatizados de renovação",
-        "Integração com IA: Uso de ferramentas de IA na rotina para programação, geração de código, planejamento e automação",
-        "Musicalia: Desenvolvimento de jogo de adivinhação musical com modo multiplayer e 3 tipos de jogo usando 8 IAs (https://music-guess-game-mu.vercel.app/)",
-        "Solução de Logística de Laptops: Solução inovadora para desafios de logística de laptops da empresa"
+        "Plataforma Interna de Gestão: Desenhou e lançou um sistema centralizado para controlar o ciclo de vida de dispositivos, assinaturas e aprovações",
+        "Integração de Fluxos de Trabalho: Unificou operações entre Slack, BambooHR e sistemas internos; criou fluxos Slack-to-Jira com logs de auditoria",
+        "IA & Escalabilidade: Arquitetou fluxos de IA e ferramentas proprietárias para automatizar a produção de playable ads, entregando dezenas de criativos interativos e reduzindo drasticamente custos operacionais",
+        "Gestão de Serviços: Construiu um modelo de suporte baseado em Jira com priorização simplificada e fluxos de trabalho automatizados",
+        "Governança do Ciclo de Vida: Padronizou a documentação de onboarding/offboarding e estabeleceu bases para implantação zero-touch (zero-touch deployment)",
+        "Confiabilidade de Processos: Aumentou a confiabilidade de resposta através de automação estruturada e painéis proativos de renovação",
+        "Logística de Dispositivos: Implementou distribuição escalável e logística reversa segura; introduziu estratégia de revenda para equipamentos pós-upgrade",
+        "Gestão SaaS: Conduziu auditorias de software e refinou estratégias de licenciamento para otimizar custos e fortalecer a governança de acessos",
+        "Rastreabilidade de Dados: Melhorou a precisão dos ativos através de uma auditoria abrangente dos registros do Hexnode e BambooHR",
+        "Musicalia: Desenvolvimento de jogo de adivinhação musical com modo multiplayer e 3 tipos de jogo usando 8 IAs (https://music-guess-game-mu.vercel.app/)"
       ]
     },
     {
       company: "Truck Center Automotive Equipments",
-      role: "Gerente de Desenvolvimento Tecnológico (Membro do Conselho em exercício, 2023–2025)",
+      role: "Gerente de Desenvolvimento Tecnológico",
       location: "Araucária, Brasil",
       period: "Dez 2019 - Presente",
       duration: "5 anos e 11 meses",
       technologies: [".NET C#", "Visual Studio", "Full Stack", "AForge", "OpenCV", "OCR", "Pascal Delphi", "Scrum"],
       responsibilities: [
-        "Membro do Conselho em exercício (2023–2025): Representação da liderança da empresa durante transição executiva, supervisionando estratégia de P&D e manufatura",
-        "Direção do desenvolvimento de sistemas de alinhamento 3D patenteados adotados em toda a América Latina",
-        "Modernização da arquitetura ERP e infraestrutura em nuvem (AWS, SQL Server, .NET)",
-        "Desenvolvedor Full Stack e Arquiteto do Software 3D Aligner e Geometria, utilizados nos sistemas de alinhamento a laser mais avançados do mundo",
-        "Estruturação do departamento de desenvolvimento com gestão de projetos e planejamento para inovação e soluções ao mercado automotivo",
-        "Integração com IA: Uso de ferramentas de IA na rotina para assistência em programação, geração de código, planejamento e otimização de desenvolvimento",
-        "Implementação e gestão de incentivos fiscais ('Lei do Bem' e 'Ex-tarifário'), qualificando projetos para incentivos governamentais com reduções fiscais anuais significativas",
-        "Estabelecimento de parcerias com provedores de solução e desenvolvimento de ecossistema de soluções integradas de equipamentos automotivos"
+        "Ecossistema de Produtos: Arquiteto Líder das suítes de software Alinhador 3D e Geometria, supervisionando o desenvolvimento full-stack em .NET C# e Delphi",
+        "Visão Computacional: Desenvolveu pipelines avançados de processamento de imagem usando OpenCV e AForge, integrando detecção OCR para captura automatizada de dados",
+        "Design de Sistemas: Responsável pela arquitetura de ponta a ponta e planejamento de novas ferramentas de diagnóstico automotivo no mercado",
+        "Liderança Ágil: Direção de ciclos de desenvolvimento de software (SDLC) usando metodologias Scrum, gerenciamento de cronogramas de projetos e equipes multifuncionais",
+        "Parcerias Estratégicas: Estabelecimento e gestão de alianças estratégicas com provedores de soluções globais para aprimorar os recursos dos produtos",
+        "Expansão de Negócios: Liderou o desenvolvimento de softwares inovadores para novas linhas de produtos, garantindo competitividade e melhoria contínua de sistemas legados",
+        "Incentivos Fiscais (Lei do Bem): Implementou e gerenciou com sucesso os protocolos da 'Lei do Bem' e 'Ex-tarifário', garantindo incentivos governamentais através da qualificação de projetos de P&D",
+        "Conformidade & ROI: Navegou por cenários regulatórios complexos para garantir que o desenvolvimento de produtos fosse eficiente em termos tributários e compatível com normas nacionais"
       ]
     },
     {
@@ -60,10 +61,12 @@ export const resumeDataPt: ResumeData = {
       duration: "9 anos",
       technologies: ["SQL Server", "Delphi Pascal", "Active Directory", "ERP Korp", ".NET C#", "Teamwork"],
       responsibilities: [
-        "Responsável pela operação da infraestrutura de TI e software de gestão (CRM, ERP), inovações tecnológicas e gestão da equipe do departamento",
-        "Desenvolvimento de software de controle customizado para gestão industrial",
-        "Participação no desenho de campanhas de incentivo de vendas e materiais de merchandising",
-        "Gestão e criação de campanhas de publicidade online com Google Adwords para impulsionar resultados web"
+        "Gestão de Ecossistema: Liderou as operações de infraestrutura de TI e a administração de sistemas vitais, incluindo Active Directory e Korp ERP",
+        "Desenvolvimento de Software Industrial: Engenharia de software customizado para controle e gestão industrial usando .NET C#, Delphi e SQL Server",
+        "Liderança de Equipe: Gerenciou a equipe do departamento de TI, priorizando a eficiência operacional e a implementação de inovações tecnológicas",
+        "Marketing de Performance: Orquestrou campanhas de publicidade online via Google Ads, com foco em otimização de conversões e resultados de visibilidade na web",
+        "Estratégia de Vendas: Colaborou no design de campanhas de incentivo a vendas e desenvolvimento de materiais de merchandising de alto impacto",
+        "Transformação Digital: Fez a ponte entre tecnologia e objetivos comerciais, garantindo que as ferramentas de CRM e automação apoiassem diretamente os objetivos de receita"
       ]
     },
     {
@@ -74,10 +77,10 @@ export const resumeDataPt: ResumeData = {
       duration: "4 anos",
       technologies: ["Pascal Delphi", "SQL Server", "Oracle"],
       responsibilities: [
-        "DBA responsável pelo banco de dados",
-        "Responsável pela implantação do primeiro ERP da empresa (Octopus), cobrindo todos os departamentos",
-        "Migração dos bancos dos dois sistemas anteriores para o SQL Server",
-        "Desenvolvimento de novos módulos ERP em Pascal Delphi e SQL"
+        "Implementação de ERP e Migração de Dados: Orquestrou a transformação digital das operações da empresa liderando a implantação de seu primeiro sistema ERP unificado, integrando todos os departamentos em um único ecossistema de dados",
+        "Implantação em Larga Escala: Liderou a implementação de ponta a ponta do Octopus ERP, integrando com sucesso todas as unidades de negócios e padronizando os fluxos de trabalho interdepartamentais",
+        "Engenharia de Módulos Customizados: Desenvolveu e otimizou módulos ERP especializados utilizando Pascal Delphi e SQL para atender requisitos lógicos de negócios específicos",
+        "Migração Estratégica de Banco de Dados: Gerenciou a migração complexa de dados legados de vários sistemas distintos para um ambiente centralizado SQL Server e Oracle, garantindo integridade de dados e zero tempo de inatividade"
       ]
     },
     {
@@ -87,8 +90,11 @@ export const resumeDataPt: ResumeData = {
       period: "Jan 2006 - Jun 2006",
       duration: "6 meses",
       responsibilities: [
-        "Atuação como desenvolvedor em Java e DBA Oracle para o ERP Compiere",
-        "Experiência em desenvolvimento de novas funcionalidades, criação de consultas, views e procedures, além de gestão do banco de dados"
+        "Arquitetura de Sistemas: Desenvolveu e implementou novas funcionalidades para o ERP Compiere usando Java, garantindo alinhamento com requisitos de negócios e escalabilidade",
+        "Lógica de Backend: Desenvolveu regras de negócios complexas e melhorias de sistema para otimizar fluxos operacionais",
+        "Gestão Oracle: Atuou como DBA Oracle, responsável pela saúde, segurança e manutenção do ambiente de banco de dados do ERP",
+        "Engenharia de Dados Avançada: Projetou e otimizou queries complexas, views e stored procedures para melhorar a performance do sistema e a recuperação de dados",
+        "Integridade de Dados: Gerenciou esquemas de banco de dados e performance tuning para apoiar operações de alta disponibilidade"
       ]
     }
   ],

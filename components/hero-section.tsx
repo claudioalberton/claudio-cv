@@ -71,7 +71,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-base md:text-lg text-foreground/80 leading-relaxed max-w-3xl mx-auto"
+              className="text-base md:text-lg text-foreground/80 leading-relaxed max-w-4xl mx-auto text-left text-justify"
             >
               {resumeData.summary}
             </motion.p>

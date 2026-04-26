@@ -63,33 +63,34 @@ export const resumeData: ResumeData = {
       location: "Toronto, Canada",
       period: "April 2025 - Present",
       responsibilities: [
-        "Meetings Hub: Created a centralized hub with automation of all demos and updates of the entire company in one place with one source of truth",
-        "Device Lifecycle & Asset Management: Implemented scalable logistics and resale strategy for device distribution",
-        "Cost & Subscription Optimization: Conducted software audits and refined licensing strategy",
-        "IT Support & Employee Experience: Built Jira-based support model and standardized onboarding/offboarding",
-        "Internal IT Management System: Designed centralized platform for devices, subscriptions, and lifecycle management",
-        "Automation & Governance: Created Slack-to-Jira workflows and automated renewal alerts",
-        "AI Integration: Utilize AI tools in daily work routine for programming, code generation, planning, and automation",
-        "Musicalia: Developed fully functional music guessing game with multiplayer mode and 3 game types using 8 AIs (https://music-guess-game-mu.vercel.app/)",
-        "Laptop Logistics Solution: Created innovative solution to resolve company laptop logistics challenges"
+        "Internal Management Platform: Designed and launched a centralized system to control device lifecycles, subscriptions, and approvals",
+        "Workflow Integration: Unified operations across Slack, BambooHR, and internal systems; engineered Slack-to-Jira workflows with full audit logs",
+        "AI & Scalability: Architected AI workflows and proprietary tools to automate playable ad production, delivering dozens of interactive creatives while drastically reducing overhead",
+        "Service Management: Built a Jira-based support model with streamlined prioritization and automated workflows",
+        "Lifecycle Governance: Standardized onboarding/offboarding documentation and established foundations for zero-touch deployment",
+        "Process Reliability: Increased response reliability through structured automation and proactive renewal dashboards",
+        "Device Logistics: Implemented scalable distribution and secure return logistics; introduced a resale strategy for post-upgrade equipment",
+        "SaaS Management: Conducted software audits and refined licensing strategies to optimize costs and strengthen access governance",
+        "Data Traceability: Improved asset accuracy through a comprehensive audit of Hexnode and BambooHR records",
+        "Musicalia: Developed fully functional music guessing game with multiplayer mode and 3 game types using 8 AIs (https://music-guess-game-mu.vercel.app/)"
       ]
     },
     {
       company: "Truck Center Automotive Equipments",
-      role: "Technology Development Manager (Acting Board Member, 2023–2025)",
+      role: "Technology Development Manager",
       location: "Araucária, Brazil",
       period: "Dec 2019 - Present",
       duration: "5 years 11 months",
       technologies: [".NET C#", "Visual Studio", "Full Stack", "AForge", "OpenCV", "OCR", "Pascal Delphi", "Scrum"],
       responsibilities: [
-        "Acting Board Member (2023–2025): Represented company leadership during executive transition, overseeing R&D and manufacturing strategy",
-        "Directed development of patented 3D alignment systems adopted nationwide across Latin America",
-        "Modernized ERP architecture and cloud infrastructure (AWS, SQL Server, .NET)",
-        "Full Stack Developer and Architect of 3D Aligner Software and Geometria Software, used in world's most advanced laser alignment systems",
-        "Structured development department with project management and planning to streamline innovation and solutions to the automotive market",
-        "AI Integration: Utilize AI tools in daily work routine for programming assistance, code generation, planning, and development optimization",
-        "Implemented and managed tax incentives ('Lei do Bem' and 'Ex-tarifário'), successfully qualifying projects for government incentives with significant annual tax reductions",
-        "Established partnerships with solution providers and developed ecosystem of integrated automotive equipment solutions"
+        "Product Ecosystem: Lead Architect for the 3D Aligner and Geometria software suites, overseeing full-stack development in .NET C# and Delphi",
+        "Computer Vision: Engineered advanced image processing pipelines using OpenCV and AForge, integrating OCR detection for automated data capture",
+        "Systems Design: Responsible for the end-to-end architecture and planning of new-to-market automotive diagnostic tools",
+        "Agile Leadership: Directed software development lifecycles (SDLC) using Scrum methodologies, managing project timelines, and cross-functional teams",
+        "Strategic Partnerships: Established and managed key alliances with global solution providers to enhance product capabilities",
+        "Business Expansion: Led the development of innovative software for new product lines, ensuring market competitiveness and continuous improvement of legacy systems",
+        "Tax Incentives (Lei do Bem): Successfully implemented and managed 'Lei do Bem' and 'Ex-tarifário' protocols, securing government incentives by qualifying R&D projects",
+        "Compliance & ROI: Navigated complex regulatory landscapes to ensure product development was both tax-efficient and compliant with national standards"
       ]
     },
     {
@@ -100,10 +101,12 @@ export const resumeData: ResumeData = {
       duration: "9 years",
       technologies: ["SQL Server", "Delphi Pascal", "Active Directory", "ERP Korp", ".NET C#", "Teamwork"],
       responsibilities: [
-        "Responsible for the operation of the company's IT infrastructure and management software (CRM, ERP), as well as for technological innovations and the management of department staff",
-        "Development of custom control software for industrial management",
-        "Participation in designing sales incentive campaigns and merchandising materials",
-        "Management and creation of online advertising campaigns using the Google Adwords tool to boost web results"
+        "Ecosystem Management: Led IT infrastructure operations and the administration of vital systems, including Active Directory and Korp ERP",
+        "Industrial Software Development: Engineered custom software for industrial control and management using .NET C#, Delphi, and SQL Server",
+        "Team Leadership: Managed the IT department staff, prioritizing operational efficiency and the implementation of technological innovations",
+        "Performance Marketing: Orchestrated online advertising campaigns via Google Ads, focusing on conversion optimization and web visibility results",
+        "Sales Strategy: Collaborated on the design of sales incentive campaigns and the development of high-impact merchandising materials",
+        "Digital Transformation: Bridged the gap between technology and commercial goals, ensuring CRM tools and automation directly supported revenue objectives"
       ]
     },
     {
@@ -114,10 +117,10 @@ export const resumeData: ResumeData = {
       duration: "4 years",
       technologies: ["Pascal Delphi", "SQL Server", "Oracle"],
       responsibilities: [
-        "DBA responsible for the database",
-        "Responsible for deploying the company's first ERP system (Octopus), which covered all departments",
-        "Migrated the databases from the two previous systems to the SQL Server database",
-        "Developed new ERP modules using the Pascal Delphi language and SQL"
+        "ERP Implementation & Data Migration: Orchestrated the digital transformation of the company’s operations by leading the deployment of its first unified ERP system, integrating all departments into a single data ecosystem",
+        "Full-Scale Deployment: Led the end-to-end implementation of the Octopus ERP, successfully onboarding all business units and standardizing cross-departmental workflows",
+        "Custom Module Engineering: Developed and optimized specialized ERP modules using Pascal Delphi and SQL to meet specific business logic requirements",
+        "Strategic Database Migration: Managed the complex migration of legacy data from multiple disparate systems into a centralized SQL Server and Oracle environment, ensuring data integrity and zero downtime"
       ]
     },
     {
@@ -127,8 +130,11 @@ export const resumeData: ResumeData = {
       period: "Jan 2006 - Jun 2006",
       duration: "6 months",
       responsibilities: [
-        "Worked as a software developer in Java and served as an Oracle DBA for the Compiere ERP system",
-        "Gained experience in developing new system functionalities, creating queries, views, and procedures, as well as in managing the database"
+        "System Architecture: Developed and implemented new functionalities for the Compiere ERP using Java, ensuring alignment with business requirements and scalability",
+        "Backend Logic: Engineered complex business rules and system enhancements to streamline operational workflows",
+        "Oracle Management: Served as the Oracle DBA, responsible for the health, security, and maintenance of the ERP’s database environment",
+        "Advanced Data Engineering: Designed and optimized sophisticated queries, views, and stored procedures to improve system performance and data retrieval",
+        "Data Integrity: Managed database schemas and performance tuning to support high-availability operations"
       ]
     }
   ],

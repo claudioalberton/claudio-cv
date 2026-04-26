@@ -26,18 +26,28 @@ const styles = StyleSheet.create({
   },
 
   // ─── Sidebar ─────────────────────────────────────────────────────────────
-  sidebar: {
-    width: '33%',
+  sidebarBackground: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    width: '36%',
     backgroundColor: C.sidebarBg,
+  },
+  sidebarAccentFixed: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '36%',
+    height: 6,
+    backgroundColor: C.accent,
+  },
+  sidebar: {
+    width: '36%',
     color: C.sidebarText,
     paddingVertical: 0,
     paddingHorizontal: 0,
     flexDirection: 'column',
-  },
-  sidebarAccentBar: {
-    height: 6,
-    backgroundColor: C.accent,
-    width: '100%',
   },
   sidebarInner: {
     padding: 18,
@@ -189,18 +199,19 @@ const styles = StyleSheet.create({
 
   // ─── Main Content ─────────────────────────────────────────────────────────
   content: {
-    width: '67%',
+    width: '64%',
     backgroundColor: C.white,
     flexDirection: 'column',
   },
   contentAccentHeader: {
-    backgroundColor: C.sidebarBg,
-    height: 6,
+    borderTop: `6px solid ${C.sidebarBg}`,
+    backgroundColor: 'transparent',
+    height: 24,
     width: '100%',
   },
   contentInner: {
     padding: 22,
-    paddingTop: 18,
+    paddingTop: 0,
     flexGrow: 1,
   },
 
@@ -213,13 +224,13 @@ const styles = StyleSheet.create({
   },
   sectionHeaderAccent: {
     width: 3,
-    height: 12,
+    height: 14,
     backgroundColor: C.accent,
     marginRight: 7,
     borderRadius: 1,
   },
   sectionHeaderText: {
-    fontSize: 9,
+    fontSize: 10,
     fontFamily: 'Helvetica-Bold',
     color: C.bodyText,
     letterSpacing: 1,
@@ -233,7 +244,7 @@ const styles = StyleSheet.create({
 
   // Summary
   summaryText: {
-    fontSize: 8.5,
+    fontSize: 9,
     lineHeight: 1.55,
     color: C.mutedText,
     marginBottom: 4,
@@ -246,13 +257,13 @@ const styles = StyleSheet.create({
     paddingLeft: 2,
   },
   achievementBullet: {
-    fontSize: 7.5,
+    fontSize: 8,
     color: C.accent,
     marginRight: 5,
     marginTop: 0.5,
   },
   achievementText: {
-    fontSize: 7.5,
+    fontSize: 8,
     lineHeight: 1.4,
     color: C.bodyText,
     flex: 1,
@@ -283,7 +294,7 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   experienceRole: {
-    fontSize: 9,
+    fontSize: 10,
     fontFamily: 'Helvetica-Bold',
     color: C.bodyText,
     flex: 1,
@@ -294,17 +305,17 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   experienceCompany: {
-    fontSize: 7.5,
+    fontSize: 8.5,
     fontFamily: 'Helvetica-Bold',
     color: C.accent,
   },
   experienceDetails: {
-    fontSize: 6.5,
+    fontSize: 7.5,
     color: C.mutedText,
     marginBottom: 3,
   },
   experienceTechnologies: {
-    fontSize: 6,
+    fontSize: 7,
     color: C.mutedText,
     marginBottom: 4,
     fontStyle: 'italic',
@@ -315,12 +326,12 @@ const styles = StyleSheet.create({
     paddingLeft: 2,
   },
   responsibilityBullet: {
-    fontSize: 6.5,
+    fontSize: 7.5,
     color: C.mutedText,
     marginRight: 4,
   },
   responsibilityText: {
-    fontSize: 6.5,
+    fontSize: 7.5,
     lineHeight: 1.4,
     color: C.bodyText,
     flex: 1,
@@ -333,13 +344,13 @@ const styles = StyleSheet.create({
     borderLeft: `2px solid ${C.accentLight}`,
   },
   patentName: {
-    fontSize: 8,
+    fontSize: 9,
     fontFamily: 'Helvetica-Bold',
     marginBottom: 2,
     color: C.bodyText,
   },
   patentDescription: {
-    fontSize: 7,
+    fontSize: 8,
     lineHeight: 1.4,
     color: C.mutedText,
   },
@@ -348,8 +359,8 @@ const styles = StyleSheet.create({
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 const getLanguagePercentage = (level: string): number => {
   const levelMap: Record<string, number> = {
-    Native: 100, 'Full Professional': 90, 'Professional Working': 70, Elementary: 50, Basic: 15,
-    Nativo: 100, 'Profissional Completo': 90, Profissional: 70, Elementar: 50, Básico: 15,
+    Native: 100, 'Full Professional': 95, 'Professional Working': 70, Elementary: 50, Basic: 15,
+    Nativo: 100, 'Profissional Completo': 95, Profissional: 70, Elementar: 50, Básico: 15,
   };
   return levelMap[level] || 75;
 };
@@ -368,10 +379,12 @@ export const ResumePDF = ({ profilePhotoUrl, data, locale = 'en' }: ResumePDFPro
   return (
     <Document>
       <Page size="A4" style={styles.page}>
+        <View style={styles.sidebarBackground} fixed />
+        <View style={styles.sidebarAccentFixed} fixed />
 
         {/* ── Sidebar ──────────────────────────────────────────────────── */}
         <View style={styles.sidebar}>
-          <View style={styles.sidebarAccentBar} />
+
           <View style={styles.sidebarInner}>
 
             {/* Profile */}
@@ -460,7 +473,8 @@ export const ResumePDF = ({ profilePhotoUrl, data, locale = 'en' }: ResumePDFPro
 
         {/* ── Main Content ─────────────────────────────────────────────── */}
         <View style={styles.content}>
-          <View style={styles.contentAccentHeader} />
+          <View style={styles.contentAccentHeader} fixed />
+
           <View style={styles.contentInner}>
 
             {/* Summary */}
